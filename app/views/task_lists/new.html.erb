@@ -1,5 +1,8 @@
-<h1>New task_list</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', task_lists_path %>
+<div class="hero-unit center">
+  <h3>Name Your New List</h3>
+    <% if flash.any? %>
+      <%= render 'layouts/flash' %>
+    <% end %>
+    
+    <%= render 'form' %>
+</div>

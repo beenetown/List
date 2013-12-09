@@ -1,0 +1,3 @@
+$(".list_items").html("<%= escape_javascript(render('task_lists/list')) %>");
+$(".delete_button").html("<%= escape_javascript(render('task_lists/delete_complete')) %>");
+$("div[class~='alert']").hide();

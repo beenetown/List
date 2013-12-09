@@ -1,0 +1,30 @@
+<ul>
+  <% if @task_list.tasks.any? %>
+    <% @task_list.tasks.each do |task| %>
+      <% if !task.complete? %>  
+        <li class="list_item">
+      <% elsif task.complete? %>
+        <li class='complete'>
+      <% end %>
+
+        <div>
+          <% if !task.complete? %>
+            <%= link_to "□", complete_task_path(task.id), method: :get, remote: true, id: "box" %>
+          <% elsif task.complete? %>  
+              <%= link_to "✓", incomplete_task_path(task.id), method: :get, remote: true, id: "check" %>
+          <% end %>
+          <span><%= task.task  %></span>
+        
+          <%= link_to "×", task_path(task.id), method: :delete, remote: true, id: "delete", class: "pull-right" %>
+        </div>
+      </li>
+    <% end %>
+      <div class="check_uncheck">
+      <%= link_to "check all", check_path, method: :get, remote: true, id: "box" %> |
+      <%= link_to " uncheck all", uncheck_path, method: :PATCH, remote: true, id: "check" %>
+      </div>
+  <% else %>  
+    <li>Add tasks above</li>
+    <li></li>
+  <% end %>
+</ul>

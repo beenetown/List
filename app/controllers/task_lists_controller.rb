@@ -1,5 +1,7 @@
 class TaskListsController < ApplicationController
   before_action :set_task_list, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user
+
 
   # GET /task_lists
   # GET /task_lists.json
@@ -10,6 +12,9 @@ class TaskListsController < ApplicationController
   # GET /task_lists/1
   # GET /task_lists/1.json
   def show
+    session[:task_list_id] = @task_list.id
+    @task_list_id = session[:task_list_id]
+    @task = Task.new
   end
 
   # GET /task_lists/new
@@ -28,10 +33,11 @@ class TaskListsController < ApplicationController
 
     respond_to do |format|
       if @task_list.save
-        format.html { redirect_to @task_list, notice: 'Task list was successfully created.' }
+        format.html { redirect_to @task_list, notice: ['Task list was created.'] }
+        format.js
         format.json { render action: 'show', status: :created, location: @task_list }
       else
-        format.html { render action: 'new' }
+        format.html { redirect_to current_user, alert: @task_list.errors.full_messages }
         format.json { render json: @task_list.errors, status: :unprocessable_entity }
       end
     end
@@ -42,7 +48,7 @@ class TaskListsController < ApplicationController
   def update
     respond_to do |format|
       if @task_list.update(task_list_params)
-        format.html { redirect_to @task_list, notice: 'Task list was successfully updated.' }
+        format.html { redirect_to @task_list, notice: ['Task list was updated.'] }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -55,8 +61,11 @@ class TaskListsController < ApplicationController
   # DELETE /task_lists/1.json
   def destroy
     @task_list.destroy
+    @task_lists = TaskList.where(user_id: current_user.id) if TaskList.find_by(user_id: current_user.id)
+    # @task_list = TaskList.new
     respond_to do |format|
-      format.html { redirect_to task_lists_url }
+      format.html { redirect_to current_user, notice: ["#{@task_list.name} was deleted."] }
+      format.js {}
       format.json { head :no_content }
     end
   end

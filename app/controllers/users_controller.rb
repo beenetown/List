@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -11,6 +12,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @task_lists = TaskList.where(user_id: @user.id) if TaskList.find_by(user_id: @user.id)
+    @task_list = TaskList.new
   end
 
   # GET /users/new
@@ -26,13 +28,14 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        sign_in(@user) 
+        create_list(@user)
+        format.html { redirect_to current_user, notice: ["Welcome to a boring list app."] }
         format.json { render action: 'show', status: :created, location: @user }
       else
-        format.html { render action: 'new' }
+        format.html { redirect_to new_user_path, alert: @user.errors.full_messages }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
@@ -43,7 +46,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: ['Your info was updated.'] }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -72,4 +75,6 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:username, :password, :password_confirmation)
     end
+
+    
 end

@@ -1,0 +1,3 @@
+<% if @task_list.tasks.any? { |task| task.complete? } %>
+  <%= link_to "delete completed", delete_complete_path, remote: true, class: "btn btn-primary btn-large" %>
+<% end %>

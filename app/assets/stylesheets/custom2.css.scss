@@ -1,0 +1,597 @@
+// @import 'bootstrap';
+
+// /* universal */
+
+// @mixin box_sizing {
+//   -moz-box-sizing: border-box;
+//   -webkit-box-sizing: border-box;
+//   box-sizing: border-box;
+// }
+
+            
+
+// @media screen and (min-width: 981px) {
+
+//   html {
+//     overflow-y: scroll;
+//   }
+
+//   body {
+//     padding-top: 60px;
+//   }
+
+//   section {
+//     overflow: auto;
+//   }
+
+//   textarea {
+//     resize: vertical;
+//   }
+
+//   .center {
+//     text-align: center;
+//   }
+
+//   .center h1 {
+//     margin-bottom: 10px;
+//   }
+
+//   .container {
+//     width: 460px;
+//   }
+
+
+//   /* typography */
+
+//   h1, h2, h3, h4, h5, h6 {
+//     line-height: 1;
+//   }
+
+//   h1 {
+//     font-size: 3em;
+//     letter-spacing: -2px;
+//     margin-bottom: 30px;
+//     text-align: center;
+//   }
+
+//   h2 {
+//     font-size: 1.2em;
+//     letter-spacing: -1px;
+//     margin-bottom: 30px;
+//     text-align: center;
+//     font-weight: normal;
+//     color: #999;
+//   }
+
+//   p {
+//     font-size: 1.1em;
+//     line-height: 1.7em;
+//   }
+
+//   #logo {
+//     float: left;
+//     margin-right: 10px;
+//     font-size: 1.7em;
+//     color: #fff;
+//     text-transform: uppercase;
+//     letter-spacing: -1px;
+//     padding-top: 9px;
+//     font-weight: bold;
+//     line-height: 1;
+//   }
+
+//   #logo:hover {
+//     color: #fff;
+//     text-decoration: none;
+//   }
+
+
+//   // This styles the individual lists
+//   #tasks_form {
+//       display: inline;
+//       position: fixed;
+//       z-index: 999;
+//       width: 460px;
+//       margin-top: 71px;
+//     #new_task {
+//       @include rounded;
+//       margin-bottom: 5px;
+//       background: $grayLight;
+//       #task_task {
+//         margin: 8px 0px 8px 8px;
+//       }
+//     }
+//   }
+
+//   #tasks_flash {
+//     margin-top: -12px;
+//     position: fixed;
+//     z-index: 999;
+//     width: 460px;
+//   }
+
+//   #name_form_block {
+//     margin-top: 60px;
+//     position: fixed;
+//     z-index: 999;
+//     // margin-left: 260px;
+//   }
+
+//   #list_name {
+//     color: darken($gray, 10%);
+//     background-color: darken($grayLighter, 10%);
+//     padding: 7px 0 7px 8px;
+//     margin-bottom: 5px;
+//     margin-top: 28px;
+//     @include rounded;
+//     position: fixed;
+//     z-index: 999;
+//     width: 453px;
+//   }
+
+//   #opacity_bk {
+//     background-color: $gray;
+//     // rgba(255,0,0,0.5);
+//   }
+
+//   #task-list {
+//     @include rounded;
+//     margin-bottom: 5px;
+//     margin-top: 122px;
+//       ul {
+//       list-style: none;
+//     }
+
+
+//     h4 {
+//       margin-left: 40px;
+//     }
+
+//     a {
+//       color: darken($gray, 10%);
+//     }
+
+//     li {
+//       overflow: auto;
+//       padding: 5px 5px 5px 8px;
+//       margin-bottom: 5px;
+//       margin-left: -25px;
+//       @include rounded;
+
+//       #task_list_item {
+//         line-height: 2em;
+//         clear: none;
+//         float: left;
+//         width: 280px;
+//         margin-bottom: 4px;
+
+//         #box {
+//           font-size: 1.8em; 
+//           font-weight: bold; 
+//           padding: 0 3px 4px;
+//         }
+
+//         #check {
+//           font-size: 1.5em;
+//         }
+
+//         #delete {
+//           font-size: 1.1em; 
+//           font-weight: bold;
+//           float: right;
+//           margin-top: 10px;
+//         }
+//       }
+
+//       #task_list_delete {
+//         float: right;
+//         margin-top: 4px;
+        
+//         #delete {
+//           font-size: 1.1em; 
+//           font-weight: bold;
+//           float: right;
+//           color: $grayDark;
+//           margin-right: 12px;
+//         }
+//       }
+
+//       #task_list_item, #task_list_delete {
+//         display: inline;
+//       }
+//     }
+
+//     li:nth-child(even) {
+//       background-color: $grayLight;
+//       }
+     
+//     li:nth-child(odd) {
+//     c
+//     }
+
+//     li#complete {
+//       background-color: lighten($blue, 30%);
+//     }
+
+//     #check_uncheck {
+//       background-color: lighten(#3a87ad, 20%);
+//       padding: 5px 5px 5px 8px;
+//       margin-bottom: 5px;
+//       margin-left: -25px;
+//       @include rounded;
+//     }
+
+//   }
+
+//   // This styles the user page
+
+//   #task_list_form {
+//     background: $grayLight;
+//     @include rounded;
+//     padding: 10px;
+
+//   }
+
+//   #tasks_flash {
+//     margin-bottom: 0px;
+//   }
+
+
+//   #task-lists {
+//     @include rounded;
+//     margin-bottom: 5px;
+      
+//       ul {
+//       list-style: none;
+//     }
+
+//     h3 {
+      
+//       color: darken($gray, 10%);
+//     }
+
+//     h4 {
+//       margin-left: 40px;
+//     }
+
+//     a {
+//       color: darken($gray, 10%);
+//     }
+
+//     li {
+//       overflow: auto;
+//       padding: 5px;
+//       margin-bottom: 5px;
+//       margin-left: -25px;
+//       @include rounded;
+      
+//       #task_list_item {
+//         line-height: 2em;
+//         float: left;
+//       }
+
+//       #delete {
+//         font-size: 1.1em; 
+//         font-weight: bold;
+//         color: $grayLight;
+//         margin-right: 12px;
+//       }
+
+//       #task_list_complete {
+//         float: right;
+//         margin-top: 4px;
+        
+//         #delete {
+//           font-size: 1.1em; 
+//           font-weight: bold;
+//         }
+//       }
+
+//       #task_list_item, #task_list_complete {
+//         display: inline;
+//       }
+//     }
+
+//     // li#even
+//      li:nth-child(even) {
+//       background-color: lighten($blue, 20%);
+//       }
+     
+//     li:nth-child(odd) {
+//     background-color: lighten($red, 20%);
+//     }
+//   }
+// }
+
+// @media screen and (max-width: 980px) {
+
+//   html {
+//     overflow-y: scroll;
+//   }
+
+
+//   section {
+//   body {
+//     padding-top: 60px;
+//   }
+//     overflow: auto;
+//   }
+
+//   textarea {
+//     resize: vertical;
+//   }
+
+//   .center {
+//     text-align: center;
+//   }
+
+//   .center h1 {
+//     margin-bottom: 10px;
+//   }
+
+//   .container {
+//     width: 750px;
+//   }
+
+//   /* typography */
+
+//   h1, h2, h3, h4, h5, h6 {
+//     line-height: 1;
+//   }
+
+//   h1 {
+//     font-size: 3em;
+//     letter-spacing: -2px;
+//     margin-bottom: 30px;
+//     text-align: center;
+//   }
+
+//   h2 {
+//     font-size: 1.2em;
+//     letter-spacing: -1px;
+//     margin-bottom: 30px;
+//     text-align: center;
+//     font-weight: normal;
+//     color: #999;
+//   }
+
+//   p {
+//     font-size: 1.1em;
+//     line-height: 1.7em;
+//   }
+
+//   #logo {
+//     float: left;
+//     margin-right: 10px;
+//     font-size: 1.7em;
+//     color: #fff;
+//     text-transform: uppercase;
+//     letter-spacing: -1px;
+//     padding-top: 9px;
+//     font-weight: bold;
+//     line-height: 1;
+//   }
+
+//   #logo:hover {
+//     color: #fff;
+//     text-decoration: none;
+//   }
+
+
+//   // This styles the individual lists
+//   #tasks_form {
+//       display: inline;
+//       position: fixed;
+//       z-index: 999;
+//       width: 750px;
+//       // margin-top: 71px;
+//     #new_task {
+//       @include rounded;
+//       margin-bottom: 5px;
+//       background: $grayLight;
+//       #task_task {
+//         margin: 8px 0px 8px 8px;
+//       }
+//     }
+//   }
+
+//   #tasks_flash {
+//     // margin-top: -12px;
+//     position: fixed;
+//     z-index: 999;
+//     width: 750px;
+//   }
+
+//   #name_form_block {
+//     // margin-top: 60px;
+//     position: fixed;
+//     z-index: 999;
+//     // margin-left: 260px;
+//   }
+
+//   #list_name {
+//     color: darken($gray, 10%);
+//     background-color: darken($grayLighter, 10%);
+//     padding: 7px 0 7px 8px;
+//     margin-bottom: 5px;
+//     margin-top: 50px;
+//     @include rounded;
+//     position: fixed;
+//     z-index: 999;
+//     width: 743px;
+//   }
+
+//   #opacity_bk {
+//     background-color: $gray;
+//     // rgba(255,0,0,0.5);
+//   }
+
+//   #task-list {
+//     @include rounded;
+//     margin-bottom: 5px;
+//     margin-top: 122px;
+//       ul {
+//       list-style: none;
+//     }
+
+
+//     h4 {
+//       margin-left: 40px;
+//     }
+
+//     a {
+//       color: darken($gray, 10%);
+//     }
+
+//     li {
+//       overflow: auto;
+//       padding: 5px 5px 5px 8px;
+//       margin-bottom: 5px;
+//       margin-left: -25px;
+//       @include rounded;
+
+//       #task_list_item {
+//         line-height: 2em;
+//         clear: none;
+//         float: left;
+//         width: 280px;
+//         margin-bottom: 4px;
+
+//         #box {
+//           font-size: 1.8em; 
+//           font-weight: bold; 
+//           padding: 0 3px 4px;
+//         }
+
+//         #check {
+//           font-size: 1.5em;
+//         }
+
+//         #delete {
+//           font-size: 1.1em; 
+//           font-weight: bold;
+//           float: right;
+//           margin-top: 10px;
+//         }
+//       }
+
+//       #task_list_delete {
+//         float: right;
+//         margin-top: 4px;
+        
+//         #delete {
+//           font-size: 1.1em; 
+//           font-weight: bold;
+//           float: right;
+//           color: $grayDark;
+//           margin-right: 12px;
+//         }
+//       }
+
+//       #task_list_item, #task_list_delete {
+//         display: inline;
+//       }
+//     }
+
+//     li:nth-child(even) {
+//       background-color: $grayLight;
+//       }
+     
+//     li:nth-child(odd) {
+//     background-color: darken($grayLighter, 10%);
+//     }
+
+//     li#complete {
+//       background-color: lighten($blue, 30%);
+//     }
+
+//     #check_uncheck {
+//       background-color: lighten(#3a87ad, 20%);
+//       padding: 5px 5px 5px 8px;
+//       margin-bottom: 5px;
+//       margin-left: -25px;
+//       @include rounded;
+//     }
+
+//   }
+
+//   // This styles the user page
+
+//   #task_list_form {
+//     background: $grayLight;
+//     @include rounded;
+//     padding: 10px;
+
+//   }
+
+//   #tasks_flash {
+//     margin-bottom: 0px;
+//   }
+
+
+//   #task-lists {
+//     @include rounded;
+//     margin-bottom: 5px;
+      
+//       ul {
+//       list-style: none;
+//     }
+
+//     h3 {
+      
+//       color: darken($gray, 10%);
+//     }
+
+//     h4 {
+//       margin-left: 40px;
+//     }
+
+//     a {
+//       color: darken($gray, 10%);
+//     }
+
+//     li {
+//       overflow: auto;
+//       padding: 5px;
+//       margin-bottom: 5px;
+//       margin-left: -25px;
+//       @include rounded;
+      
+//       #task_list_item {
+//         line-height: 2em;
+//         float: left;
+//       }
+
+//       #delete {
+//         font-size: 1.1em; 
+//         font-weight: bold;
+//         color: $grayLight;
+//         margin-right: 12px;
+//       }
+
+//       #task_list_complete {
+//         float: right;
+//         margin-top: 4px;
+        
+//         #delete {
+//           font-size: 1.1em; 
+//           font-weight: bold;
+//         }
+//       }
+
+//       #task_list_item, #task_list_complete {
+//         display: inline;
+//       }
+//     }
+
+//     // li#even
+//      li:nth-child(even) {
+//       background-color: lighten($blue, 20%);
+//       }
+     
+//     li:nth-child(odd) {
+//     background-color: lighten($red, 20%);
+//     }
+//   }
+// }
+

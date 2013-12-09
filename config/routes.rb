@@ -2,7 +2,27 @@ List::Application.routes.draw do
   resources :task_lists
   resources :users
   resources :tasks
+  resources :tasks do
+    member do
+      get 'complete'
+      get 'incomplete'
+    end
+  end
   
+  resources :sessions, only: [:new, :create, :destroy]  
+  match '/signup',  to: 'users#new',            via: 'get'
+  match '/signin',  to: 'sessions#new',         via: 'get'
+  match '/signout', to: 'sessions#destroy',     via: 'delete'
+
+  match '/delete_complete', to: 'tasks#destroy_complete', via: 'get'
+
+  match '/check', to: 'tasks#check_all', via: 'get'
+  match '/uncheck', to: 'tasks#uncheck_all', via: 'patch'
+  
+  # match '/complete', to: 'tasks#complete', via: 'get'
+  # match '/incomplete', to: 'tasks#incomplete', via: 'get'
+
+
   get "welcome/index"
   get "welcome/help"
   get "welcome/contact"

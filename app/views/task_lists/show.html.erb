@@ -1,10 +1,20 @@
-<p id="notice"><%= notice %></p>
+<div class="list">
+  
+  <div id="tasks_flash" class="center">
+    <%= render 'layouts/flash' if flash.any?%>
+  </div>
+    
+  <h3 class="title"><%= @task_list.name %></h3>
 
-<p>
-  <strong>Tasks:</strong>
-  <%= @task_list.tasks %>
-</p>
+  <div class="form">
+    <%= render 'tasks/form' %>
+  </div>
 
-<%= link_to 'new task', "#", class: "btn btn-small" %> 
-<br>
-<%= link_to 'Edit', edit_task_list_path(@task_list) %>
+  <div class="list_items">  
+    <%= render 'task_lists/list' %>
+  </div>  
+
+  <div class="delete_button">
+    <%= render 'task_lists/delete_complete' %>
+  </div>
+</div>

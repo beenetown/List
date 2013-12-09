@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131024225913) do
+ActiveRecord::Schema.define(version: 20131026182633) do
 
   create_table "task_lists", force: true do |t|
     t.datetime "created_at"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20131024225913) do
 
   create_table "tasks", force: true do |t|
     t.string   "task"
-    t.boolean  "complete"
+    t.boolean  "complete",     default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "task_list_id"
@@ -33,6 +33,9 @@ ActiveRecord::Schema.define(version: 20131024225913) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "remember_token"
   end
+
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
 end

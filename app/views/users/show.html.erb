@@ -1,26 +1,11 @@
-<h1>Profile</h1>
-
-
-<div class="span4 offset2">
+<div class="list">
+  <h3 class="title"><%= @user.username %>'s Task Lists:</h3>
   
-  <p id="notice"><%= notice %></p>
+  <div class="form">
+    <%= render 'task_lists/form' %>
+  </div>
 
-  <p>
-    <strong>
-      <%= @user.username %>
-    </strong>
-    | <%= link_to 'Edit', edit_user_path(@user) %>
-  </p>
-    <% if @task_lists %>
-      <p>
-      Task Lists:
-      <% @task_lists.each do |task_list| %>
-        <%= link_to task_list.name, task_list_path(task_list) %>
-      <% end %>
-      </p>
-    <% end %>
-
-    <%= link_to "New Task List", new_task_list_path %>
-
-  
+  <div class="list_items">
+    <%= render 'users/task_lists' %>
+  </div>
 </div>
