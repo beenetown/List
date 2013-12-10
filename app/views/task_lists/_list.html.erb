@@ -15,7 +15,7 @@
           <% end %>
           <span><%= task.task  %></span>
         
-          <%= link_to "×", task_path(task.id), method: :delete, remote: true, id: "delete", class: "pull-right" %>
+          <%= link_to "×", task_path(task.id), method: :delete, remote: true, class: "delete" %>
         </div>
       </li>
     <% end %>
