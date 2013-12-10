@@ -1,5 +1,5 @@
 <%= form_for(@task_list) do |f| %>
   <%= f.text_field :name, placeholder: "New list....", class: "text" %>
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.submit class: "btn btn-primary btn-large", value: "Create Task List" %>
+  <%= f.submit class: "button", value: "Create Task List" %>
 <% end %>

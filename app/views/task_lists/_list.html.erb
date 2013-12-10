@@ -2,9 +2,9 @@
   <% if @task_list.tasks.any? %>
     <% @task_list.tasks.each do |task| %>
       <% if !task.complete? %>  
-        <li class="list_item">
+        <li class="list_item clicker">
       <% elsif task.complete? %>
-        <li class='complete'>
+        <li class='complete clicker'>
       <% end %>
 
         <div>

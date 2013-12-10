@@ -27,15 +27,17 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
+    @user = params[:user] ? User.new(user_params) : User.new_guest
+    # @user = User.new(user_params)
     respond_to do |format|
       if @user.save
+        create_list(@user) unless current_user && current_user.guest?
+        current_user.move_to(@user) if current_user && current_user.guest?
         sign_in(@user) 
-        create_list(@user)
         format.html { redirect_to current_user, notice: ["Welcome to a boring list app."] }
         format.json { render action: 'show', status: :created, location: @user }
       else
-        format.html { redirect_to new_user_path, alert: @user.errors.full_messages }
+        format.html { redirect_to new_user_path, @user.errors.full_messages }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
@@ -73,7 +75,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:username, :password, :password_confirmation)
+      params.require(:user).permit(:username, :password, :password_confirmation, :guest)
     end
 
     

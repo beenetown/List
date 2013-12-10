@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131026182633) do
+ActiveRecord::Schema.define(version: 20131209183423) do
 
   create_table "task_lists", force: true do |t|
     t.datetime "created_at"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20131026182633) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "remember_token"
+    t.boolean  "guest"
   end
 
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"

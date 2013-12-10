@@ -64,9 +64,9 @@ class TaskListsController < ApplicationController
     @task_lists = TaskList.where(user_id: current_user.id) if TaskList.find_by(user_id: current_user.id)
     # @task_list = TaskList.new
     respond_to do |format|
-      format.html { redirect_to current_user, notice: ["#{@task_list.name} was deleted."] }
-      format.js {}
-      format.json { head :no_content }
+      # format.html { redirect_to current_user, notice: ["#{@task_list.name} was deleted."] }
+      format.js 
+      # format.json { head :no_content }
     end
   end
 

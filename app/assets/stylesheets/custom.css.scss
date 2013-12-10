@@ -13,7 +13,7 @@ border-radius: $radius;
 }
 
 html {
-  overflow-y: scroll;
+  // overflow-y: scroll;
 }
 
 body {
@@ -27,18 +27,20 @@ body {
 
 }
 
-// .navbar {
-//   line-height: 1em;
-// }
-
-// .nav{
-//   clear: none;
+// .navbar .nav{
+//   overflow: visible;
 // }
 
 #logo {
   font-family: "brush script mt", script;
-  font-size: 5em;
+  font-size: 6em;
   line-height: 1em;
+  // margin-left: -120px;
+  // position: fixed;
+}
+
+.pull-right {
+  margin-top: 250px;
 }
 
 .btn {

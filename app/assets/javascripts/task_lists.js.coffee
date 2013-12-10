@@ -4,6 +4,7 @@
 # $(document).on "ready page:change click", ->  
 
 $(document).on "ready page:change ajaxComplete", =>  
-  $('li').click ->
+  $('.clicker').click ->
     $(this).find('a').first()[0].click()
 
+ 

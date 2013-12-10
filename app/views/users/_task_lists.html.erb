@@ -4,22 +4,15 @@
 
 <ul>
   <% if @task_lists %>
-    <% n = 1 %>
     <% @task_lists.each do |task_list| %>
-      <% if n.even? %>
-        <li id="even">
-      <% elsif n.odd? %>
-        <li id="odd">
-      <% end %>
-
+      <li>
         <div id="task_list_item">
           <%= link_to task_list.name, task_list_path(task_list) %>
         </div>
           <div id="task_list_delete">
-          <%= link_to "×", task_list_path(task_list.id), method: :delete, remote: true, id: "delete", class: "pull-right" unless @task_lists.length == 1 %>
+          <%= link_to "×", task_list_path(task_list), method: :delete, remote: true, id: "delete", class: "pull-right" unless @task_lists.length == 1 %>
           </div>
       </li>
-      <% n += 1 %>
     <% end %>
   <% end %>
 </ul>

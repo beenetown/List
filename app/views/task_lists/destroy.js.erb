@@ -1,2 +1,2 @@
-$(".lists_items").html("<div class='alert'><button type='button' class='close' data-dismiss='alert'>&times;</button><span><%= "#{@task_list.name} was deleted." %></span></div>");
-$(".lists_items").append("<%= escape_javascript(render('users/task_lists')) %>");
+$(".list_items").html('<div class="alert"><button type="button" class="close" data-dismiss="alert">&times;</button><span><%= "#{@task_list.name} was deleted." %></span></div>');
+$(".list_items").html("<%= escape_javascript(render('users/task_lists')) %>");
