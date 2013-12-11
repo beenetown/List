@@ -12,147 +12,292 @@ $complete: #006ED1;
 border-radius: $radius;
 }
 
-body {
-  background-color: lighten($light, 25%);
-}
-
-.site {
-  width: 95%;
-  margin: 0 auto;
-  font-size: 16px;
-  font-family: "helvetica"
-}
-
-.center {
-  text-align: center;
-}
-
-#logo {
-  font-family: "brush script mt", "helvetica";
-  font-size: 4em;
-  line-height: 1em;
-  color: $gray;
-  font-weight: bold;
-  text-shadow: 1px 0px $grayLight;
-}
-
-.dropdown-menu {
-  // width: 200%;
-  font-size: 6em;
-  // height: 1000px;
-  li a {
-    line-height: 1em;
+@media screen and (max-width: 980px) {
+  body {
+    background-color: lighten($light, 25%);
   }
-}
 
-.btn {
-  background-color: $dark;
-}
+  .site {
+    width: 95%;
+    margin: 0 auto;
+    font-size: 16px;
+    font-family: "helvetica"
+  }
 
-.list {
-  padding-top: 60px;
-  margin: 0 auto;
+  .center {
+    text-align: center;
+  }
 
-  h3 {
-    margin: 0 0 5px 15px;
+  #logo {
+    font-family: "brush script mt", "helvetica";
     font-size: 4em;
-    // width: 50%;
-    padding: 5px 0 10px 5px;
     line-height: 1em;
+    color: $gray;
+    font-weight: bold;
+    text-shadow: 1px 0px $grayLight;
   }
 
-  .form {
-      margin: 0 10px 0 5px;
-      padding: 10px;
-      line-height: 10em;
-      background: $light;
-      @include rounded(2em);
-      
-    form {
-      margin: 0;
+  .dropdown-menu {
+    // width: 200%;
+    font-size: 6em;
+    // height: 1000px;
+    li a {
+      line-height: 1em;
+    }
+  }
 
-      .text {
-        margin: 5px 0px 5px 5px;
-        width: 60%;
-        line-height: 60px;
-        height: 1.5em;
-        font-size: 4em;
+  .btn {
+    background-color: $dark;
+  }
+
+  .list {
+    padding-top: 60px;
+    margin: 0 auto;
+
+    h3 {
+      margin: 0 0 5px 15px;
+      font-size: 4em;
+      // width: 50%;
+      padding: 5px 0 10px 5px;
+      line-height: 1em;
+    }
+
+    .form {
+        margin: 0 10px 0 5px;
+        padding: 10px;
+        line-height: 10em;
+        background: $light;
+        @include rounded(2em);
+        
+      form {
+        margin: 0;
+
+        .text {
+          margin: 5px 0px 5px 5px;
+          width: 60%;
+          line-height: 60px;
+          height: 1.5em;
+          font-size: 4em;
+        }
+
+        .button {
+          line-height: 1em;
+          font-size: 3.5em;
+          background-color: $complete;
+          color: white;
+          @include rounded(0.1em); 
+          padding: 25px 15px 25px 15px;
+          margin-top: 2px;
+          border: none;
+        }
+      }
+    }
+    
+    ul {
+      margin: 0px;
+      list-style: none;
+      
+      a {
+        color: lighten($light, 20%);
       }
 
-      .button {
+      li {
+        font-size: 5em;
+        margin: 0.1em;
+        padding: 0.8em;
+        @include rounded;
+        color: lighten($light, 20%);
+        // box-shadow: 1px 1px $dark;
+      }
+
+      .delete {
+        float: right;
+        margin-top: 3%;
+      }
+
+      span {
         line-height: 1em;
+      }
+   
+      li:nth-child(even){
+        background-color: $even;
+      }
+   
+      li:nth-child(odd){
+        background-color: $odd;
+      }
+      li.complete{
+        background-color: $complete;
+      }
+    }
+
+    .check_uncheck {
+      margin: 20px 0 0 10px;
+      font-size: 3em;
+      a {
+        color: $grayDark;
+      }
+    }
+
+    .delete_button {
+      margin: 15px 0 0 10px;
+      padding: 10px 0 20px 0;
+      
+      .button {
+        line-height: 1.6em;
         font-size: 3.5em;
         background-color: $complete;
         color: white;
         @include rounded(0.1em); 
-        padding: 25px 15px 25px 15px;
+        padding: 15px;
         margin-top: 2px;
-        border: none;
+        // box-shadow: 1px 1px $dark;
+
+      }
+    }
+    
+  }
+}
+
+@media screen and (min-width: 981px) {
+  body {
+    background-color: lighten($light, 25%);
+  }
+
+  .site {
+    width: 100%;
+    margin: 0 auto;
+    font-size: 16px;
+    font-family: "helvetica"
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  #logo {
+    font-family: "brush script mt", "helvetica";
+    font-size: 4em;
+    line-height: 1em;
+    color: $gray;
+    font-weight: bold;
+    text-shadow: 1px 0px $grayLight;
+  }
+
+  // .dropdown-menu {
+  //   // width: 200%;
+  //   font-size: 6em;
+  //   // height: 1000px;
+  //   li a {
+  //     line-height: 1em;
+  //   }
+  // }
+
+  .btn {
+    background-color: $dark;
+  }
+
+  .list {
+    width: 60%;
+    padding-top: 60px;
+    margin: 0 auto;
+
+    h3 {
+      margin: -25px 0 5px 15px;
+      font-size: 2em;
+      // width: 50%;
+      padding: 0 0 10px 5px;
+      line-height: 1em;
+    }
+
+    .form {
+        margin: 0 2px 0 2px;
+        padding: 10px;
+        line-height: 1em;
+        background: $light;
+        @include rounded(0.5em);
+        
+      form {
+        margin: 0;
+
+        .text {
+          margin: 5px 0px 5px 5px;
+          width: 60%;
+          height: 1.5em;
+          font-size: 1em;
+        }
+
+        .button {
+          line-height: 1em;
+          font-size: 1em;
+          background-color: $complete;
+          color: white;
+          @include rounded(0.1em); 
+          padding: 9px 5px 8px 5px;
+          margin-top: 2px;
+          border: none;
+        }
+      }
+    }
+    
+    ul {
+      margin: 0px;
+      list-style: none;
+      
+      a {
+        color: lighten($light, 20%);
+      }
+
+      li {
+        font-size: 1.5em;
+        margin: 0.1em;
+        padding: 0.8em;
+        @include rounded;
+        color: lighten($light, 20%);
+        // box-shadow: 1px 1px $dark;
+      }
+
+      .delete {
+        float: right;
+      }
+
+      span {
+        line-height: 1em;
+      }
+   
+      li:nth-child(even){
+        background-color: $even;
+      }
+   
+      li:nth-child(odd){
+        background-color: $odd;
+      }
+      li.complete{
+        background-color: $complete;
+      }
+    }
+
+    .check_uncheck {
+      margin: 20px 0 0 10px;
+      font-size: 1em;
+      a {
+        color: $grayDark;
+      }
+    }
+
+    .delete_button {
+      margin: 5px 0 0 10px;
+      padding: 10px 0 20px 0;
+      
+      .button {
+        line-height: 1em;
+        font-size: 1em;
+        background-color: $complete;
+        color: white;
+        @include rounded(0.1em); 
+        padding: 10px;
+        margin-top: 2px;
       }
     }
   }
-  
-  ul {
-    margin: 0px;
-    list-style: none;
-    
-    a {
-      color: lighten($light, 20%);
-    }
-
-    li {
-      font-size: 5em;
-      margin: 0.1em;
-      padding: 0.8em;
-      @include rounded;
-      color: lighten($light, 20%);
-      // box-shadow: 1px 1px $dark;
-    }
-
-    .delete {
-      float: right;
-      margin-top: 3%;
-    }
-
-    span {
-      line-height: 1em;
-    }
- 
-    li:nth-child(even){
-      background-color: $even;
-    }
- 
-    li:nth-child(odd){
-      background-color: $odd;
-    }
-    li.complete{
-      background-color: $complete;
-    }
-  }
-
-  .check_uncheck {
-    margin: 20px 0 0 10px;
-    font-size: 3em;
-    a {
-      color: $grayDark;
-    }
-  }
-
-  .delete_button {
-    margin: 15px 0 0 10px;
-    padding: 10px 0 20px 0;
-    
-    .button {
-      line-height: 1.6em;
-      font-size: 3.5em;
-      background-color: $complete;
-      color: white;
-      @include rounded(0.1em); 
-      padding: 15px;
-      margin-top: 2px;
-      // box-shadow: 1px 1px $dark;
-
-    }
-  }
-  
 }
