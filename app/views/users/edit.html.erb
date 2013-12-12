@@ -1,8 +1,10 @@
 <div class="container">
   <div class="span5 offset4">
-  <h3>Edit Your Info</h3>
-
+    <h3><%= "#{@user.name}" %>
+      <span style="font-size: 0.6em;">
+        <%= link_to " delete account", user_path, method: :delete, confirm: "Are you sure you want to delete your account? In respect for your privacy, all data will be removed and will be unrecoverable." %>
+      </span>
+    </h3>
     <%= render 'form' %>
-
   </div>
 </div>

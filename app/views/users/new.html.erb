@@ -1,6 +1,11 @@
-<div class="span5 offset4">
-  <h1>Enter Your Info</h1>
+<div class="new_user_form">
+  <div id="tasks_flash" class="center">
+    <%= render 'layouts/flash' if flash.any?%>
+  </div>
 
-  <%= render 'form' %>
+  <h2>Sign Up</h2>
 
+  <div>
+    <%= render 'form' %>
+  </div>
 </div>

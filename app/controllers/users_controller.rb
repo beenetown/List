@@ -31,13 +31,24 @@ class UsersController < ApplicationController
     # @user = User.new(user_params)
     respond_to do |format|
       if @user.save
-        create_list(@user) unless current_user && current_user.guest?
-        current_user.move_to(@user) if current_user && current_user.guest?
-        sign_in(@user) 
-        format.html { redirect_to current_user, notice: ["Welcome to a boring list app."] }
-        format.json { render action: 'show', status: :created, location: @user }
+        if current_user && current_user.guest? 
+          #guest user who is now signing up
+          signup_guest @user
+          format.html { redirect_to current_user, notice: ["Thanks for signing up!"] }
+          format.json { render action: 'show', status: :created, location: @user }
+        elsif @user.username.nil?
+          # creates a guest account
+          make_account @user
+          format.html { redirect_to current_user, notice: ["Thanks for trying this boring list app!"] }
+          format.json { render action: 'show', status: :created, location: @user }
+        else
+          # user who signs up without trying it as a guest first.
+          make_account @user 
+          format.html { redirect_to current_user, notice: ["Thanks for signing up!"] }
+          format.json { render action: 'show', status: :created, location: @user }
+        end
       else
-        format.html { redirect_to new_user_path, @user.errors.full_messages }
+        format.html { redirect_to new_user_path, alert: @user.errors.full_messages }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
@@ -60,10 +71,12 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url }
-      format.json { head :no_content }
+    if signed_in? && current_user == @user
+      @user.destroy
+      respond_to do |format|
+        format.html { redirect_to root_url, notice: ["#{@user.username}, your account and all information was successfully removed."] }
+        format.json { head :no_content }
+      end
     end
   end
 

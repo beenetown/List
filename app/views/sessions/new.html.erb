@@ -1,8 +1,11 @@
 <div class="container">
   <div class="span4 offset4">
+    <div id="tasks_flash" class="center">
+      <%= render 'layouts/flash' if flash.any?%>
+    </div>
     <h1 class="center">Sign In</h1>
 
-    <%= form_tag('/sessions') do %>
+    <%= form_tag('/sessions', class: "new_user center") do %>
       <div class="field">
         <%= label_tag 'Username' %>
         <%= text_field_tag 'username' %>

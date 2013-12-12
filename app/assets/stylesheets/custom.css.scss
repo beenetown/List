@@ -157,6 +157,13 @@ border-radius: $radius;
     }
     
   }
+  .new_user_form {
+    width: 20%;
+    margin: 0 auto;
+  }
+  .new_user .field label {
+    font-size: 1.2em;
+  }
 }
 
 @media screen and (min-width: 981px) {
@@ -184,14 +191,9 @@ border-radius: $radius;
     text-shadow: 1px 0px $grayLight;
   }
 
-  // .dropdown-menu {
-  //   // width: 200%;
-  //   font-size: 6em;
-  //   // height: 1000px;
-  //   li a {
-  //     line-height: 1em;
-  //   }
-  // }
+  .alert {
+    margin: -25px 0 45px 0;
+  }
 
   .btn {
     background-color: $dark;
@@ -232,7 +234,7 @@ border-radius: $radius;
           font-size: 1em;
           background-color: $complete;
           color: white;
-          @include rounded(0.1em); 
+          @include rounded(0.2em); 
           padding: 9px 5px 8px 5px;
           margin-top: 2px;
           border: none;
@@ -294,10 +296,18 @@ border-radius: $radius;
         font-size: 1em;
         background-color: $complete;
         color: white;
-        @include rounded(0.1em); 
+        @include rounded(0.2em); 
         padding: 10px;
         margin-top: 2px;
       }
     }
+  }
+
+  .new_user_form {
+    width: 20%;
+    margin: 0 auto;
+  }
+  .new_user .field label {
+    font-size: 1.2em;
   }
 }

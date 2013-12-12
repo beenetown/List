@@ -1,4 +1,8 @@
 <div class="list">
+  <% if flash.any? %>
+    <%= render 'layouts/flash' %>
+  <% end %>
+
   <h3 class="title"><%= @user.name %>'s Task Lists:</h3>
   
   <div class="form">

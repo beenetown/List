@@ -1,17 +1,9 @@
-<% if flash.any? %>
-  <%= render 'layouts/flash' %>
-<% end %>
-
 <ul>
   <% if @task_lists %>
     <% @task_lists.each do |task_list| %>
       <li>
-        <div id="task_list_item">
-          <%= link_to task_list.name, task_list_path(task_list) %>
-        </div>
-          <div id="task_list_delete">
-          <%= link_to "×", task_list_path(task_list), method: :delete, remote: true, id: "delete", class: "pull-right" unless @task_lists.length == 1 %>
-          </div>
+        <%= link_to task_list.name, task_list_path(task_list) %>
+        <%= link_to "×", task_list_path(task_list), method: :delete, remote: true, class: "delete" unless @task_lists.length == 1 %>
       </li>
     <% end %>
   <% end %>

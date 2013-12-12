@@ -39,4 +39,18 @@ module ApplicationHelper
   def complete?
     self.complete == true ? true : false
   end
+
+  def time_left(user)
+    (7-((Time.now - user.created_at)/86400)).round
+  end
+
+  def signup_guest(user)
+    current_user.move_to(user) 
+    sign_in(user)
+  end
+
+  def make_account(user)
+    create_list(user) 
+    sign_in(user)
+  end
 end
