@@ -1,10 +1,12 @@
 @import 'bootstrap';
+
+// color scheme 
 $even: #004684;
 $odd: #396B99;
 $light: #8BB0D1;
 $dark: #002B51;
 $complete: #006ED1;
-
+$background: lighten($light, 25%);
 
 @mixin rounded($radius: 0.3em) {
 -webkit-border-radius: $radius;
@@ -168,7 +170,7 @@ border-radius: $radius;
 
 @media screen and (min-width: 981px) {
   body {
-    background-color: lighten($light, 25%);
+    background-color: $background;
   }
 
   .site {
@@ -200,7 +202,7 @@ border-radius: $radius;
   }
 
   .hero-unit {
-    background-color: $light;
+    background-color: $background;
   }
 
   .list {
